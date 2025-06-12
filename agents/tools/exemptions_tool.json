@@ -1,0 +1,157 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "govapi",
+        "version": "v1"
+    },
+    "paths": {
+        "/PolicyExemptions/{subscriptionId}": {
+            "get": {
+                "operationId": "GetPolicyExemptions",
+                "tags": [
+                    "PolicyExemptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriptionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "showAllProperties",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "withExpiryDate",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "withExpiryDateWithinDays",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/PolicyExemptions/{subscriptionId}/{exemptionName}": {
+            "get": {
+                "operationId": "GetPolicyExemptionDetails",
+                "tags": [
+                    "PolicyExemptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriptionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "exemptionName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/PolicyExemptions/{subscriptionId}/{exemptionName}/expiresOn": {
+            "put": {
+                "operationId": "UpdateExpiryDate",
+                "tags": [
+                    "PolicyExemptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "subscriptionId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "exemptionName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "expiresOnIso8601",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/Time": {
+            "get": {
+                "operationId": "GetCurrentTime",
+                "tags": [
+                    "Time"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "ApiKey": {
+                "type": "apiKey",
+                "description": "API Key needed to access the endpoints. x-api-key: {key}",
+                "name": "x-api-key",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "ApiKey": []
+        }
+    ],
+    "servers": [
+        {
+            "url": "https://api-policy-exemptions-02-efbbbch9arayfqdz.uksouth-01.azurewebsites.net"
+        }
+    ]
+}
