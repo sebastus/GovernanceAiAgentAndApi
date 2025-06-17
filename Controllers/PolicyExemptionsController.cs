@@ -23,7 +23,7 @@ namespace govapi.Controllers
         public async Task<IActionResult> GetPolicyExemptions(
             string subscriptionId,
             [FromQuery] bool showAllProperties = false,
-            [FromQuery] bool withExpiryDate = false,
+            [FromQuery] bool withExpiryDate = true,
             [FromQuery] string? withExpiryDateWithinDays = null)
         {
             _logger.LogInformation("Fetching policy exemptions for subscription: {SubscriptionId}", subscriptionId);
