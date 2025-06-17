@@ -166,7 +166,6 @@ _TeamCity*
 .sonar/
 
 # VS Code
-.vscode/
 
 # Windows image file caches
 Thumbs.db
